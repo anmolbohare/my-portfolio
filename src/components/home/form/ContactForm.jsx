@@ -1,0 +1,127 @@
+// /* eslint-disable no-undef */
+// import { useEffect, useState } from 'react';
+
+// export default function ContactForm() {
+//   const [name, setName] = useState('');
+//   const [email, setEmail] = useState('');
+//   const [message, setMessage] = useState('');
+//   const [token, setToken] = useState('');
+//   const [sending, setSending] = useState(false);
+//   const [errorMessage, setErrorMessage] = useState('');
+//   const [success, setSuccess] = useState(false);
+
+//   useEffect(() => {
+//     // Is called once the DOM is ready.
+//     turnstile.ready(function () {
+//       turnstile.render('#turnstileWidget', {
+//         sitekey: import.meta.env.VITE_CLOUDFLARE_SITE_KEY,
+//         callback: function (token) {
+//           // Trigger when the user successfully passed the Cloudflare Turnstile challenge.
+//           setToken(token);
+//         }
+//       });
+//     });
+//   }, [turnstile]);
+
+//   function sendEmail(event) {
+//     event.preventDefault();
+//     event.stopPropagation();
+
+//     setSending(true);
+//     setErrorMessage('');
+//     setSuccess(false);
+
+//     const body = JSON.stringify({ name, email, message, token });
+
+//     fetch(`${import.meta.env.VITE_API_URL}/email`, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body
+//     })
+//       .then((response) => {
+//         if (!response.ok) {
+//           return response.json().then(() => {
+//             throw new Error();
+//           });
+//         }
+
+//         return response.json();
+//       })
+//       .then(() => {
+//         setSuccess(true);
+//         setSending(false);
+//         setName('');
+//         setEmail('');
+//         setMessage('');
+//       })
+//       .catch(() => {
+//         setErrorMessage(
+//           'An error has occurred while sending the message. Have you filled in all the fields?'
+//         );
+//         setSending(false);
+//       });
+//   }
+
+//   return (
+//     <>
+//       <form onSubmit={sendEmail}>
+//         <div className="flex flex-col text-black">
+//           <input
+//             className="rounded p-4 mb-6"
+//             type="text"
+//             name="name"
+//             placeholder="Your name"
+//             value={name}
+//             onChange={(event) => setName(event.target.value)}
+//           />
+//           <input
+//             className="rounded p-4 mb-6"
+//             type="email"
+//             name="email"
+//             placeholder="Your email"
+//             value={email}
+//             onChange={(event) => setEmail(event.target.value)}
+//           />
+//           <textarea
+//             className="rounded p-4 mb-6"
+//             rows={10}
+//             name="message"
+//             placeholder="Your message"
+//             value={message}
+//             onChange={(event) => setMessage(event.target.value)}
+//           />
+//           <div id="turnstileWidget" className="mb-4"></div>
+//           <input
+//             className="rounded border border-dark-grey bg-dark-grey text-beige cursor-pointer p-4 disabled:bg-gray-700 disabled:text-gray-400 disabled:cursor-not-allowed hover:border-beige disabled:hover:border-dark-grey"
+//             type="submit"
+//             value="Send Message"
+//             disabled={sending}
+//           />
+//           {errorMessage && (
+//             <div className="rounded text-red-600 bg-red-200 border border-red-600 p-4 mt-4">
+//               {errorMessage}
+//             </div>
+//           )}
+//           {success && (
+//             <div className="rounded text-green-600 bg-green-200 border border-green-600 p-4 mt-4">
+//               The message has been sent successfully! I will get back to you as soon as possible :)
+//             </div>
+//           )}
+//         </div>
+//       </form>
+//     </>
+//   );
+// }
+
+export default function ContactForm() {
+  return (
+    <div className="flex flex-col gap-4">
+      <p>Feel free to reach out directly:</p>
+      <p>📧 <a href="mailto:anmolbohare01@gmail.com" className="text-beige hover:underline">anmolbohare01@gmail.com</a></p>
+      <p>📱 <a href="tel:+916266954556" className="text-beige hover:underline">+91 6266954556</a></p>
+      {/* <p>💼 <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer" className="text-beige hover:underline">LinkedIn</a></p> */}
+    </div>
+  );
+}
