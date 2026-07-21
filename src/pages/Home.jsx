@@ -87,8 +87,8 @@ export default function Home() {
                 images={[
                   { src: '/images/book/cover.jpg', caption: 'poster' },
                   { src: '/images/book/flipcart-listing.jpg', caption: 'flipcart listing' },
-                  { src: '/images/book/website.jpg', caption: 'website' },
-                  { src: '/images/book/stall.jpg', caption: 'book stall' },
+                  { src: '/images/book/website.jpg', caption: 'sabke domain expire ho gaye hai kyuki kaafi time se sirf padhai pe focus kar raha tha' },
+                  { src: '/images/book/stall.jpg', caption: 'gwalior me baija taal hai wahan book bechne jata tha' },
                   { src: '/images/book/ndtv.jpg', caption: 'ndtv interview' },
                   { src: '/images/book/tv.jpg', caption: 'tv coverage' }
                 ]}
