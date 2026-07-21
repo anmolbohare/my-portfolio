@@ -120,7 +120,7 @@ export default function ContactForm() {
     <div className="flex flex-col gap-4">
       <p>Feel free to reach out directly:</p>
       <p>📧 <a href="mailto:anmolbohare01@gmail.com" className="text-beige hover:underline">anmolbohare01@gmail.com</a></p>
-      <p>📱 <a href="tel:+916266954556" className="text-beige hover:underline">+91 6266954556</a></p>
+      <p>📱 <a href="tel:+918962615955" className="text-beige hover:underline">+91 8962615955</a></p>
       {/* <p>💼 <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer" className="text-beige hover:underline">LinkedIn</a></p> */}
     </div>
   );

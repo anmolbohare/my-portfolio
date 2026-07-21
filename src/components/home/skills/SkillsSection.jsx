@@ -161,7 +161,6 @@
 //     </>
 //   );
 // }
-
 import {
   FaCss3Alt,
   FaGitAlt,
@@ -171,6 +170,11 @@ import {
   FaReact,
   FaServer,
   FaDatabase,
+  FaGoogle,
+  FaInstagram,
+  FaEnvelope,
+  FaSearch,
+  FaBullhorn
 } from 'react-icons/fa';
 import { FaCode } from 'react-icons/fa6';
 import {
@@ -178,15 +182,28 @@ import {
   SiMongodb,
   SiTailwindcss,
   SiCloudinary,
+  SiHubspot,
+  SiGoogleads,
+  SiMeta
 } from 'react-icons/si';
 import { RiImageEditFill } from 'react-icons/ri';
-import { MdMiscellaneousServices } from 'react-icons/md';
+import { MdMiscellaneousServices, MdCampaign } from 'react-icons/md';
 import Skill from './Skill';
 import SkillsSubsection from './SkillsSubsection';
 
 export default function SkillsSection() {
   return (
     <>
+      <SkillsSubsection title="Marketing" IconComponent={MdCampaign} marginTop="mt-8">
+        <Skill IconComponent={SiMeta} text="Meta Ads" />
+        <Skill IconComponent={SiGoogleads} text="Google Ads" />
+        <Skill IconComponent={FaInstagram} text="Instagram Marketing" />
+        <Skill IconComponent={FaSearch} text="SEO" />
+        <Skill IconComponent={FaBullhorn} text="Content Marketing" />
+        <Skill IconComponent={FaEnvelope} text="Email Marketing" />
+        <Skill IconComponent={SiHubspot} text="HubSpot" />
+      </SkillsSubsection>
+
       <SkillsSubsection title="Languages" IconComponent={FaCode} marginTop="mt-8">
         <Skill IconComponent={SiJavascript} text="JavaScript" />
       </SkillsSubsection>

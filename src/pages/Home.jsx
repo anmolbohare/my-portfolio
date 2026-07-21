@@ -1,9 +1,4 @@
-import {
-  HiAcademicCap,
-  HiArrowPathRoundedSquare,
-  HiBriefcase,
-  HiMusicalNote
-} from 'react-icons/hi2';
+import { HiAcademicCap, HiMusicalNote } from 'react-icons/hi2';
 import { useRef } from 'react';
 import NavBar from '../components/home/nav/NavBar';
 import BackgroundCanvas from '../components/home/background/BackgroundCanvas';
@@ -15,6 +10,7 @@ import PortfolioCard from '../components/home/portfolio/PortfolioCard';
 import Footer from '../components/home/footer/Footer';
 import ContactForm from '../components/home/form/ContactForm';
 import SkillsSection from '../components/home/skills/SkillsSection';
+import ImageGallery from '../components/home/portfolio/ImageGallery';
 
 const isMobileOrTablet = (() => {
   let check = false;
@@ -55,28 +51,80 @@ export default function Home() {
       <HomeSection sectionsRefs={sectionsRefs} />
       <div className="relative">
         {!isMobileOrTablet && <BackgroundCanvas />}
+
         <Section sectionsRefs={sectionsRefs} name="about" title="About">
           <p>
-            I am a full stack developer focused on building real-world web applications from scratch. Over the past year, my self-study journey has led me to master the MERN stack — designing and developing complete projects independently, from database to UI.
+            I ran organic and paid Instagram/Meta ad campaigns for a college admissions consulting
+            initiative, generating leads and talking to 500+ prospective students — guiding 40-50
+            of them end-to-end through the admissions process, from inquiry to enrollment.
           </p>
           <p>
-            My experience includes building a job portal with role-based authentication using React, Node.js, Express and MongoDB, as well as a full-featured e-commerce platform with an admin panel and cloud-based media management. I am also a self-published author with 500+ copies sold, which reflects my ability to take an idea from zero to a finished, marketable product.
+            I also independently conceptualized, produced and sold a self-published book — 700+
+            copies sold through e-commerce (Flipkart) and offline promotion, supported by a
+            dedicated website I built for the launch. I'm certified in HubSpot Digital Marketing
+            and Google Ads Search, with a strong foundation in SEO, content marketing, email
+            marketing and paid search.
           </p>
           <p className="m-0">
-            This website was developed using React, Three.js and React Three Fiber and I did the UI design entirely by myself without any template. The source code is available in my GitHub profile. Feel free to check it out!
+            Before marketing, I spent a year self-studying the MERN stack, building projects like
+            HireFlow (a job portal) and Lyriq (an e-commerce platform).
           </p>
         </Section>
-        <Section sectionsRefs={sectionsRefs} name="projects" title="Projects">
+
+        <Section sectionsRefs={sectionsRefs} name="projects" title="Marketing Work">
+          <PortfolioGrid>
+            <PortfolioCard
+              date="2025"
+              title="Self-Published Book"
+              link="#"
+              keywords="#ecommerce #contentMarketing #branding #700+CopiesSold">
+              <p>
+                Independently conceptualized, produced and sold a self-published book — 700+
+                copies sold through e-commerce (Amazon listing) and offline promotion, backed by
+                a dedicated website.
+              </p>
+              <ImageGallery
+                images={[
+                  { src: '/images/book/cover.jpg', caption: 'poster' },
+                  { src: '/images/book/flipcart-listing.jpg', caption: 'flipcart listing' },
+                  { src: '/images/book/website.jpg', caption: 'website' },
+                  { src: '/images/book/stall.jpg', caption: 'book stall' },
+                  { src: '/images/book/ndtv.jpg', caption: 'ndtv interview' },
+                  { src: '/images/book/tv.jpg', caption: 'tv coverage' }
+                ]}
+              />
+            </PortfolioCard>
+
+            <PortfolioCard
+              date="2025"
+              title="College Admissions Consulting"
+              link="#"
+              keywords="#metaAds #paidCampaigns #leadGeneration #CTR">
+              <p>
+                Ran paid Instagram/Meta ad campaigns for a college admissions consulting
+                initiative, generating leads and talking to 500+ prospective students. Managed
+                lead follow-up and guided 40-50 students end-to-end through the admissions
+                process, successfully converting inquiries into enrollments.
+              </p>
+              <ImageGallery images={[{ src: '/images/ads/college.jpg', caption: '' }]} />
+            </PortfolioCard>
+          </PortfolioGrid>
+        </Section>
+
+        <Section sectionsRefs={sectionsRefs} name="technical-projects" title="Technical Projects">
           <PortfolioGrid>
             <PortfolioCard
               date="2026"
               title="HireFlow"
               link="https://job-portal-client-kappa-indol.vercel.app/"
               keywords="#react #nodejs #mongodb #express #clerkAuth #fullstack #jobPortal">
-               <p> A full-stack job portal where recruiters can post jobs and candidates can browse and apply. Built
-  with Clerk-based authentication, role-based dashboards for both user types, and a clean responsive
-  UI. </p>
-  <button
+              <p>
+                A full-stack job portal where recruiters can post jobs and candidates can browse
+                and apply. Built with Clerk-based authentication, role-based dashboards for both
+                user types, and a clean responsive UI.
+              </p>
+              <ImageGallery images={[{ src: '/images/technical/hireflow.png', caption: '' }]} />
+              <button
                 className="text-beige"
                 onClick={(event) => {
                   goToUrl('https://github.com/anmolbohare/job-portal', event);
@@ -84,16 +132,19 @@ export default function Home() {
                 Github repository
               </button>
             </PortfolioCard>
+
             <PortfolioCard
               date="2026"
               title="Lyriq"
               link="https://lyriq-one.vercel.app/"
               keywords="#react #nodejs #mongodb #cloudinary #jwt #fullstack #ecommerce">
               <p>
-                A complete e-commerce platform with product listings, cart management, order placement and an
-  admin panel for managing products and orders. Features JWT authentication, Cloudinary for media
-  uploads and a Vite-powered React frontend connected to a Node/Express backend.
+                A complete e-commerce platform with product listings, cart management, order
+                placement and an admin panel for managing products and orders. Features JWT
+                authentication, Cloudinary for media uploads and a Vite-powered React frontend
+                connected to a Node/Express backend.
               </p>
+              <ImageGallery images={[{ src: '/images/technical/lyriq.png', caption: '' }]} />
               <button
                 className="text-beige"
                 onClick={(event) => {
@@ -104,9 +155,11 @@ export default function Home() {
             </PortfolioCard>
           </PortfolioGrid>
         </Section>
+
         <Section sectionsRefs={sectionsRefs} name="skills" title="Skills">
           <SkillsSection />
         </Section>
+
         <Section sectionsRefs={sectionsRefs} name="Education" title="Education">
           <SubSection title="" IconComponent={HiAcademicCap} marginTop="mt-0">
             <div className="mt-6 sm:m-0">2010-2022</div>
@@ -115,100 +168,21 @@ export default function Home() {
             <div className="mt-6 sm:m-0">2022-2026</div>
             <div>
               <p className="m-0">
-                <a href="https://www.amity.edu/gwalior/" target="_blank" rel="noreferrer"> 
-         Amity University Gwalior 
-      </a>
+                <a href="https://www.amity.edu/gwalior/" target="_blank" rel="noreferrer">
+                  Amity University Gwalior
+                </a>
               </p>
-              
               <p className="text-sm m-0">
                 Bachelor of Technology in Computer Science & Engineering
               </p>
             </div>
             <div className="text-sm">Gwalior, Madhya Pradesh</div>
           </SubSection>
-          {/* <SubSection title="Professional Experience" IconComponent={HiBriefcase}>
-            <div className="mt-6 sm:m-0">2010-2013</div>
-            <div>
-              <p className="m-0">
-                <a href="https://synchrotech.ch/en/" target="_blank" rel="noreferrer">
-                  Synchrotech SA
-                </a>{' '}
-                - Full-stack developer
-              </p>
-              <p className="text-sm m-0">
-                Development and maintenance of internal and external applications in C#, PHP and
-                JavaScript.
-              </p>
-              <p className="text-sm m-0">Analysis, planning and management of customer projects.</p>
-              <p className="text-sm m-0">Research and analysis of new technologies.</p>
-            </div>
-            <div className="text-sm">Internships & Employment</div>
-            <div className="mt-6 sm:m-0">2016-2025</div>
-            <div>
-              <p className="m-0">
-                <a href="https://heig-vd.ch/" target="_blank" rel="noreferrer">
-                  HEIG-VD
-                </a>{' '}
-                - R&D Associate
-              </p>
-              <p className="text-sm m-0">
-                Development of full-stack web applications for several companies and institutions,
-                including
-                <br />
-                <a href="https://www.abraxas.ch/fr" target="_blank" rel="noreferrer">
-                  Abraxas
-                </a>
-                ,{' '}
-                <a href="https://www.avalia.io/" target="_blank" rel="noreferrer">
-                  Avalia
-                </a>
-                ,{' '}
-                <a href="https://bhaasha.ch/" target="_blank" rel="noreferrer">
-                  Bhaasha
-                </a>
-                ,{' '}
-                <a href="https://www.ciip.ch/" target="_blank" rel="noreferrer">
-                  CIIP
-                </a>
-                ,{' '}
-                <a href="https://www.gyb.ch/" target="_blank" rel="noreferrer">
-                  GYB
-                </a>{' '}
-                and{' '}
-                <a href="https://geo-satis.com/en/" target="_blank" rel="noreferrer">
-                  Geosatis
-                </a>
-                .
-              </p>
-              <p className="text-sm m-0">
-                Assisting and doing odd jobs for web technology courses in the Bachelor’s programme.
-              </p>
-            </div>
-            <div className="text-sm">Employment</div>
-
-            <div className="mt-6 sm:m-0">2025-present</div>
-            <div>
-              <p className="m-0">
-                <a href="https://www.abraxas.ch" target="_blank" rel="noreferrer">
-                  Abraxas Informatik AG
-                </a>{' '}
-                - Senior Web Software Engineer
-              </p>
-              <p className="text-sm m-0">
-                Development of a full-stack web application for a public sector customer, with
-                priority given to the frontend for my role.
-              </p>
-              <p className="text-sm m-0">Assistance with software architecture decisions.</p>
-              <p className="text-sm m-0">
-                Use of backend (Java, JAX-RS, TomEE) and frontend (Angular) technologies.
-              </p>
-            </div>
-            <div className="text-sm">Employment</div>
-          </SubSection> */}
           <SubSection title="Hobbies" IconComponent={HiMusicalNote}>
             <div>Music, writing and sport</div>
           </SubSection>
         </Section>
+
         <Section sectionsRefs={sectionsRefs} name="contact" title="Contact">
           <ContactForm />
         </Section>
